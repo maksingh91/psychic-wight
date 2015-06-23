@@ -1,0 +1,63 @@
+// method to format phone and restrict user to only enter numeric values
+							$scope.formatPhone = function(event) {
+								if (event.keyCode == 13) {
+									$scope.clearError();
+									$scope.searchValue();
+								} else if (event.keyCode == 16) {
+								} else if ($scope.provider.prvdTelNum != undefined) {
+									if (!/^([0-9 \-\(\)]{0,})$/.test($scope.provider.prvdTelNum)) {
+										$scope.numericPhoneNum = true;
+										$scope.provider.prvdTelNum = $scope.provider.prvdTelNum.replace(
+												/^([0-9 \-\(\)]{0,})$/, '');
+										// other error message flag set,so not to display .
+										$scope.searchCriteria = 'false';
+									} else {
+										$scope.numericPhoneNum = false;
+									}
+								}
+								$scope.backspacerUP(event, $scope.provider.prvdTelNum);
+							};
+
+
+
+var numberSortAlgo = function(a, b) {
+								/**
+								 * @name tinSortAlgo
+								 * @description Sorts TIN values. Handles nulls and undefined through calling handleNulls
+								 * @param {string}
+								 *            a -- sort value a
+								 * @param {string}
+								 *            b -- sort value b
+								 * @returns {number} returns -ve, 0, +ve
+								 */
+								var nulls = $scope.gridApi.core.sortHandleNulls(a, b);
+								if (nulls !== null) {
+									return nulls;
+								} else {
+									numA = Number(a), numB = Number(b);
+									return numA === numB ? 0 : (numA < numB ? -1 : 1);
+								}
+							};
+
+
+
+
+
+
+
+
+
+
+
+
+Thanks and Regards,
+
+Mahaveer Singh Ratnoo
+Senior Software Engineer
+
+ 
+--------------------------------------------------------
+Ext: 14467 | LL : 622-14467 
+Mob : 91 9004923605| mahaveer.ratnoo@igate.com
+
+
