@@ -1,0 +1,7 @@
+** for spinner to show saving like that 
+
+  <span class="fa fa-gear fa-spin" auto-saving="name"></span>
+            <span class="fa fa-check-square-o" auto-saved="name"></span>
+            
+            
+            
